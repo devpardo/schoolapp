@@ -161,6 +161,20 @@ export class AuthService {
       this.student.section
     );
   }
+  async getAuthSubjectTests(subject) {
+    return this.subjectsService.getSubjectTests(
+      subject,
+      this.student.grade,
+      this.student.section
+    );
+  }
+  async getAuthSubjectActivites(subject) {
+    return this.subjectsService.getSubjectActivites(
+      subject,
+      this.student.grade,
+      this.student.section
+    );
+  }
 
   async getAuthTeachers() {
     return this.teachersService.getTeachers(

@@ -1,7 +1,32 @@
 <mat-list>
   <h3 mat-subheader> Assignments </h3>
+
   <mat-list-item *ngFor="let assignment of assignments">
     <h3>{{assignment.subject}} {{assignment.pubdate}}</h3>
     <p>{{assignment.description}}</p>
+  </mat-list-item>
+  <mat-list-item *ngIf="!assignments.length">
+    No Assignments
+  </mat-list-item>
+</mat-list>
+<mat-list>
+  <h3 mat-subheader> Tests </h3>
+  <mat-list-item *ngFor="let test of tests" (click)="onSelectTest(test)">
+    <h3>{{test.title}}</h3>
+  </mat-list-item>
+
+  <mat-list-item *ngIf="!tests.length">
+    No Tests
+  </mat-list-item>
+</mat-list>
+<mat-list>
+  <h3 mat-subheader> Activites </h3>
+
+  <mat-list-item *ngFor="let activity of activities">
+    {{activity.id}}
+  </mat-list-item>
+
+  <mat-list-item *ngIf="!activities.length">
+    No Activities
   </mat-list-item>
 </mat-list>

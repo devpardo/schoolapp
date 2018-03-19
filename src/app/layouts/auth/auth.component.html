@@ -42,12 +42,10 @@
     </mat-menu>
 
   </mat-toolbar-row>
-  <mat-toolbar-row *ngIf="authService.auth.type === 'p' && authService.student">
-    {{authService.student.firstname}}
-  </mat-toolbar-row>
+
 </mat-toolbar>
 
-<mat-sidenav-container class="sidenav" [class.parent]="authService.auth.type === 'p' && authService.student" color="primary">
+<mat-sidenav-container class="sidenav" color="primary">
   <mat-sidenav mode="side" [opened]="active">
     <mat-nav-list>
       <mat-list-item *ngFor="let route of routes" (click)="onNavigateTo(route)">
@@ -57,6 +55,11 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
+    <mat-toolbar *ngIf="authService.auth.type === 'p' && authService.student">
+      <mat-toolbar-row>
+        {{authService.student.firstname}}
+      </mat-toolbar-row>
+    </mat-toolbar>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

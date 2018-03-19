@@ -13,7 +13,6 @@ export class AuthComponent implements OnInit {
   routes = [];
   constructor(public authService: AuthService, private router: Router) {}
   async ngOnInit() {
-    await this.authService.getParentInfo();
     this.routes = [
       {
         name: "Overview",
@@ -44,6 +43,12 @@ export class AuthComponent implements OnInit {
         link: "auth/directory/staff"
       }
     ];
+    if (this.authService.auth.type === "p") {
+      this.routes.push({
+        name: "Reply Slips",
+        link: "auth/slips"
+      });
+    }
   }
 
   onToggleDrawer() {

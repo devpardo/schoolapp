@@ -13,6 +13,7 @@ import { DirectoryComponent } from "./pages/directory/directory.component";
 import { TeachersComponent } from "./pages/teachers/teachers.component";
 import { ClassmatesComponent } from "./pages/classmates/classmates.component";
 import { StaffComponent } from "./pages/staff/staff.component";
+import { TestComponent } from "./pages/test/test.component";
 
 const routes: Routes = [
   {
@@ -39,6 +40,10 @@ const routes: Routes = [
       {
         path: "subjects/:id",
         component: SubjectComponent
+      },
+      {
+        path: "tests/:id",
+        component: TestComponent
       },
       {
         path: "profile",

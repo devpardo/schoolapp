@@ -25,4 +25,22 @@ export class SubjectsService {
       }
     ).then(res => res.json());
   }
+
+  async getSubjectTests(subject: string, grade: string, section: string) {
+    return fetch(`http://stpcentral.net/tests/${subject}/${grade}-${section}`, {
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }).then(res => res.json());
+  }
+  async getSubjectActivites(subject: string, grade: string, section: string) {
+    return fetch(
+      `http://stpcentral.net/activitysheets/${subject}/${grade}-${section}`,
+      {
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }
+    ).then(res => res.json());
+  }
 }

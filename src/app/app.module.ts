@@ -27,7 +27,8 @@ import { DirectoryComponent } from "./pages/directory/directory.component";
 import { TeachersComponent } from "./pages/teachers/teachers.component";
 import { ClassmatesComponent } from "./pages/classmates/classmates.component";
 import { StaffComponent } from "./pages/staff/staff.component";
-import { SubjectComponent } from './pages/subject/subject.component';
+import { SubjectComponent } from "./pages/subject/subject.component";
+import { TestComponent } from "./pages/test/test.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +43,8 @@ import { SubjectComponent } from './pages/subject/subject.component';
     TeachersComponent,
     ClassmatesComponent,
     StaffComponent,
-    SubjectComponent
+    SubjectComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,4 @@
+import { Router } from "@angular/router";
 import { AuthService } from "./../../services/auth/auth.service";
 import { Component, OnInit } from "@angular/core";
 
@@ -8,9 +9,13 @@ import { Component, OnInit } from "@angular/core";
 })
 export class AssignmentsComponent implements OnInit {
   assignments = [];
-  constructor(public authService: AuthService) {}
+  constructor(public authService: AuthService, private router: Router) {}
 
   async ngOnInit() {
     this.assignments = await this.authService.getAuthAssignments();
+  }
+
+  onSelectSubject(subject) {
+    this.router.navigate([`auth/subjects`, subject.subject]);
   }
 }

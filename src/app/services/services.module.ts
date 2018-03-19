@@ -14,6 +14,7 @@ import { ParentsService } from "./data/parents.service";
 import { StudentsService } from "./data/students.service";
 import { TeachersService } from "./data/teachers.service";
 import { SubjectsService } from "./data/subjects.service";
+import { TestsService } from "./data/tests.service";
 
 @NgModule({
   imports: [CommonModule],
@@ -27,6 +28,7 @@ import { SubjectsService } from "./data/subjects.service";
     SchedulesService,
     AssignmentsService,
     SubjectsService,
+    TestsService,
     AuthGuard
   ]
 })
