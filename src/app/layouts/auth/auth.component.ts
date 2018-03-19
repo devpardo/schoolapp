@@ -64,4 +64,13 @@ export class AuthComponent implements OnInit {
     console.log(this.authService.student);
     this.router.navigate(["auth/overview"]);
   }
+
+  get isParent() {
+    return (
+      this.authService.auth &&
+      this.authService.auth.type === "p" &&
+      this.authService.student &&
+      this.authService.auth.children
+    );
+  }
 }

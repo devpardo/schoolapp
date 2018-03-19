@@ -4,34 +4,33 @@
     <button mat-icon-button (click)="onToggleDrawer()">
       <mat-icon>menu</mat-icon>
     </button>
-    
+
     stpCentral
     <span class="flex-spacer">
     </span>
 
-    <ng-template ngIf="authService.auth.type === 'p' && authService.student">
-      <button class="children-button" mat-icon-button [matMenuTriggerFor]="children">
-        <mat-icon>
-          people
 
-        </mat-icon>
-        <span class="badge">
-          {{authService.auth.children.length}}
-        </span>
-      </button>
-      <mat-menu #children="matMenu">
-        <mat-list>
-          <h3 mat-subheader>Children</h3>
+    <button class="children-button" mat-icon-button [matMenuTriggerFor]="children" *ngIf="isParent">
+      <mat-icon>
+        people
+      </mat-icon>
+      <span class="badge">
+        {{authService.auth.children.length}}
+      </span>
+    </button>
+    <mat-menu #children="matMenu">
+      <mat-list>
+        <h3 mat-subheader>Children</h3>
 
-          <mat-list-item *ngFor="let child of authService.auth.children" (click)="onSelectChild(child)">
-            <img [src]="child.image" class="avatar">
-            <h4 mat-line>{{child.firstname}}</h4>
-            <p mat-line> {{child.lastname}} </p>
-          </mat-list-item>
+        <mat-list-item *ngFor="let child of authService.auth.children" (click)="onSelectChild(child)">
+          <img [src]="child.image" class="avatar">
+          <h4 mat-line>{{child.firstname}}</h4>
+          <p mat-line> {{child.lastname}} </p>
+        </mat-list-item>
 
-        </mat-list>
-      </mat-menu>
-    </ng-template>
+      </mat-list>
+    </mat-menu>
+
     <img [src]="authService.auth.image" class="avatar" [matMenuTriggerFor]="menu">
 
     <mat-menu #menu="matMenu">
