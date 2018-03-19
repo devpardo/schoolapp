@@ -1,6 +1,7 @@
 <mat-list>
   <h3 mat-subheader>Teachers</h3>
   <mat-list-item *ngFor="let teacher of teachers">
-    {{teacher.firstname}}
+    <img matListAvatar src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" alt="">
+    <div matLine> {{teacher.firstname}} </div>
   </mat-list-item>
 </mat-list>

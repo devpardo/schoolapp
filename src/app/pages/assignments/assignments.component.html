@@ -1,7 +1,7 @@
 <mat-list>
   <h3 mat-subheader> Assignments </h3>
   <mat-list-item *ngFor="let assignment of assignments" (click)="onSelectSubject(assignment)">
-    <h3>{{assignment.subject}} {{assignment.pubdate}}</h3>
-    <p>{{assignment.description}}</p>
+    <h3 matLine>{{assignment.subject}} {{assignment.pubdate}}</h3>
+    <p matLine>{{assignment.description}}</p>
   </mat-list-item>
 </mat-list>

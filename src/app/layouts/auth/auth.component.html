@@ -56,7 +56,8 @@
   <mat-sidenav-content>
     <mat-toolbar *ngIf="authService.auth.type === 'p' && authService.student">
       <mat-toolbar-row>
-        {{authService.student.firstname}}
+        <img class="avatar" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" alt="">
+        <span>{{authService.student.firstname}}</span>
       </mat-toolbar-row>
     </mat-toolbar>
     <router-outlet></router-outlet>
