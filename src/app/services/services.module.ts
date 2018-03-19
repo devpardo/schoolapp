@@ -9,10 +9,17 @@ import "rxjs/add/operator/find";
 import "rxjs/add/operator/merge";
 import { ParentsService } from "./data/parents.service";
 import { StudentsService } from "./data/students.service";
+import { TeachersService } from "./data/teachers.service";
 
 @NgModule({
   imports: [CommonModule],
   declarations: [],
-  providers: [UsersService, AuthService, ParentsService, StudentsService]
+  providers: [
+    UsersService,
+    AuthService,
+    ParentsService,
+    StudentsService,
+    TeachersService
+  ]
 })
 export class ServicesModule {}

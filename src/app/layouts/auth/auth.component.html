@@ -1,0 +1,35 @@
+<mat-toolbar color="primary">
+
+  <mat-toolbar-row>
+    <button mat-icon-button (click)="onToggleDrawer()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    GINO APP
+    <span class="flex-spacer">
+
+    </span>
+    <img [src]="authService.auth.image" class="avatar" [matMenuTriggerFor]="menu">
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>dialpad</mat-icon>
+        <span>Redial</span>
+      </button>
+      <button mat-menu-item disabled>
+        <mat-icon>voicemail</mat-icon>
+        <span>Check voicemail</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>notifications_off</mat-icon>
+        <span>Disable alerts</span>
+      </button>
+    </mat-menu>
+  </mat-toolbar-row>
+
+</mat-toolbar>
+
+<mat-sidenav-container color="primary">
+  <mat-sidenav mode="side" [opened]="active">Sidenav content</mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -48,6 +48,8 @@ export class UsersService {
     },
     {
       id: 3,
+      image:
+        "https://scontent.fmnl6-1.fna.fbcdn.net/v/t31.0-8/477597_10150879126872986_1945926737_o.jpg?oh=4609ecaed7f0e82ebc55d39b1c8e9cca&oe=5B448285",
       email: "gino@mail.com",
       password: "gino",
       name: {
@@ -69,12 +71,8 @@ export class UsersService {
     }
   ];
   constructor() {}
-  getUsers(ids?: string[] | number[]) {
-    return Observable.from(
-      ids
-        ? this.users.filter((data: any) => (<any[]>ids).includes(data.id))
-        : this.users
-    );
+  getUsers() {
+    return this.users;
   }
   getUser(value: string | number, key: string = "id") {
     return this.getUsers().find(data => data[key] === value);

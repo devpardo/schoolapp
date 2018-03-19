@@ -5,16 +5,23 @@ import { Injectable } from "@angular/core";
 export class StudentsService {
   students = [
     {
-      id: 1
+      id: 1,
+      grade: 1
     }
   ];
   constructor() {}
-  getStudents(ids?: string[] | number[]) {
-    return Observable.from(
-      ids
-        ? this.students.filter((data: any) => (<any[]>ids).includes(data.id))
-        : this.students
-    );
+  // getStudents(ids?: string[] | number[]) {
+  //   return Observable.from(
+  //     ids
+  //       ? this.students.filter((data: any) => (<any[]>ids).includes(data.id))
+  //       : this.students
+  //   );
+  // }
+  // getStudent(value: string | number, key: string = "id") {
+  //   return this.getStudents().find(data => data[key] === value);
+  // }
+  getStudents() {
+    return this.students;
   }
   getStudent(value: string | number, key: string = "id") {
     return this.getStudents().find(data => data[key] === value);

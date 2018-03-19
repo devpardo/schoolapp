@@ -20,18 +20,24 @@ export class ParentsService {
   ];
   constructor(private studentService: StudentsService) {}
 
-  getParents(ids?: string[] | number[]) {
-    return Observable.from(
-      ids
-        ? this.parents.filter((data: any) => (<any[]>ids).includes(data.id))
-        : this.parents
-    );
+  // getParents(ids?: string[] | number[]) {
+  //   return Observable.from(
+  //     ids
+  //       ? this.parents.filter((data: any) => (<any[]>ids).includes(data.id))
+  //       : this.parents
+  //   );
+  // }
+  // getParent(value: string | number, key: string = "id") {
+  //   return this.getParents().find(data => data[key] === value);
+  // }
+
+  // getParentWithChildren(id) {
+  //   return this.getParent(id).merge(this.studentService.getStudent);
+  // }
+  getParents() {
+    return this.parents;
   }
   getParent(value: string | number, key: string = "id") {
-    return this.getParents().find(data => data[key] === value);
-  }
-
-  getParentWithChildren(id) {
-    return this.getParent(id).merge(this.studentService.getStudent);
+    return this.parents.find(data => data[key] === value);
   }
 }
