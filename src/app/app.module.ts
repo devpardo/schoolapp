@@ -12,14 +12,6 @@ import { DefaultComponent } from "./layouts/default/default.component";
 import { AuthComponent } from "./layouts/auth/auth.component";
 import { OverviewComponent } from "./pages/overview/overview.component";
 
-import { MatSidenavModule } from "@angular/material/sidenav";
-import { MatToolbarModule } from "@angular/material/toolbar";
-import { MatIconModule } from "@angular/material/icon";
-import { MatButtonModule } from "@angular/material/button";
-import { MatMenuModule } from "@angular/material/menu";
-import { MatListModule } from "@angular/material/list";
-import { MatTabsModule } from "@angular/material/tabs";
-
 import { AssignmentsComponent } from "./pages/assignments/assignments.component";
 import { SubjectsComponent } from "./pages/subjects/subjects.component";
 import { ProfileComponent } from "./pages/profile/profile.component";
@@ -29,6 +21,8 @@ import { ClassmatesComponent } from "./pages/classmates/classmates.component";
 import { StaffComponent } from "./pages/staff/staff.component";
 import { SubjectComponent } from "./pages/subject/subject.component";
 import { TestComponent } from "./pages/test/test.component";
+import { MaterialModule } from "./material.module";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,13 +46,7 @@ import { TestComponent } from "./pages/test/test.component";
     AppRoutingModule,
     ServicesModule,
     BrowserAnimationsModule,
-    MatSidenavModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatButtonModule,
-    MatMenuModule,
-    MatListModule,
-    MatTabsModule
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
