@@ -43,12 +43,12 @@ export class AuthComponent implements OnInit {
         link: "auth/directory/staff"
       }
     ];
-    if (this.authService.auth.type === "p") {
-      this.routes.push({
-        name: "Reply Slips",
-        link: "auth/slips"
-      });
-    }
+    // if (this.authService.auth.type === "p") {
+    //   this.routes.push({
+    //     name: "Reply Slips",
+    //     link: "auth/slips"
+    //   });
+    // }
   }
 
   onToggleDrawer() {
