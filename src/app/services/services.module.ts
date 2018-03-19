@@ -1,3 +1,6 @@
+import { AssignmentsService } from "./data/assignments.service";
+import { SchedulesService } from "./data/schedules.service";
+import { AuthGuard } from "./auth/auth.guard";
 import { AuthService } from "./auth/auth.service";
 import { UsersService } from "./data/users.service";
 import { NgModule } from "@angular/core";
@@ -10,6 +13,7 @@ import "rxjs/add/operator/merge";
 import { ParentsService } from "./data/parents.service";
 import { StudentsService } from "./data/students.service";
 import { TeachersService } from "./data/teachers.service";
+import { SubjectsService } from "./data/subjects.service";
 
 @NgModule({
   imports: [CommonModule],
@@ -19,7 +23,11 @@ import { TeachersService } from "./data/teachers.service";
     AuthService,
     ParentsService,
     StudentsService,
-    TeachersService
+    TeachersService,
+    SchedulesService,
+    AssignmentsService,
+    SubjectsService,
+    AuthGuard
   ]
 })
 export class ServicesModule {}

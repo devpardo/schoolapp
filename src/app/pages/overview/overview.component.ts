@@ -7,8 +7,7 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./overview.component.sass"]
 })
 export class OverviewComponent implements OnInit {
-  auth;
-  constructor(private authService: AuthService) {}
+  constructor(public authService: AuthService) {}
 
   ngOnInit() {}
 }

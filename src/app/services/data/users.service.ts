@@ -71,13 +71,23 @@ export class UsersService {
     }
   ];
   constructor() {}
-  getUsers() {
-    return this.users;
+  getUsers(ids?: string[] | number[]) {
+    return ids
+      ? this.users.filter((user: any) => (ids as any).includes(user.id))
+      : this.users;
   }
   getUser(value: string | number, key: string = "id") {
     return this.getUsers().find(data => data[key] === value);
   }
   getUserByEmail(email: string) {
     return this.getUser(email, "email");
+  }
+  getUserInfo(id: string | number) {
+    return fetch(`http://stpcentral.net/sprofile/${id}`, {
+      method: "get",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }).then(res => res.json());
   }
 }

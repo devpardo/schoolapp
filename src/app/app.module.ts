@@ -6,7 +6,6 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AppRoutingModule } from "./app-routing.module";
 
 import { AppComponent } from "./app.component";
-import { UsersComponent } from "./pages/users/users.component";
 import { ServicesModule } from "./services/services.module";
 import { LoginComponent } from "./pages/login/login.component";
 import { DefaultComponent } from "./layouts/default/default.component";
@@ -18,14 +17,32 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
 import { MatMenuModule } from "@angular/material/menu";
+import { MatListModule } from "@angular/material/list";
+import { MatTabsModule } from "@angular/material/tabs";
+
+import { AssignmentsComponent } from "./pages/assignments/assignments.component";
+import { SubjectsComponent } from "./pages/subjects/subjects.component";
+import { ProfileComponent } from "./pages/profile/profile.component";
+import { DirectoryComponent } from "./pages/directory/directory.component";
+import { TeachersComponent } from "./pages/teachers/teachers.component";
+import { ClassmatesComponent } from "./pages/classmates/classmates.component";
+import { StaffComponent } from "./pages/staff/staff.component";
+import { SubjectComponent } from './pages/subject/subject.component';
 @NgModule({
   declarations: [
     AppComponent,
-    UsersComponent,
     LoginComponent,
     DefaultComponent,
     AuthComponent,
-    OverviewComponent
+    OverviewComponent,
+    AssignmentsComponent,
+    SubjectsComponent,
+    ProfileComponent,
+    DirectoryComponent,
+    TeachersComponent,
+    ClassmatesComponent,
+    StaffComponent,
+    SubjectComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +54,9 @@ import { MatMenuModule } from "@angular/material/menu";
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
-    MatMenuModule
+    MatMenuModule,
+    MatListModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

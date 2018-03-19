@@ -1,0 +1,6 @@
+<mat-list>
+  <h3 mat-subheader> Subjects </h3>
+  <mat-list-item *ngFor="let subject of subjects" (click)="onSelectSubject(subject)">
+    <h3>{{subject.subject}}</h3>
+  </mat-list-item>
+</mat-list>
