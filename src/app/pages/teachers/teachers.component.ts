@@ -19,6 +19,6 @@ export class TeachersComponent implements OnInit {
   ) {}
 
   async ngOnInit() {
-    this.teachers = this.authService.getAuthTeachers();
+    this.teachers = await this.authService.getAuthTeachers();
   }
 }
