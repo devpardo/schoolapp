@@ -1,6 +1,53 @@
-<mat-list>
-  <h3 mat-subheader> Subjects </h3>
-  <mat-list-item *ngFor="let subject of subjects" (click)="onSelectSubject(subject)">
-    <h3>{{subject.subject}}</h3>
-  </mat-list-item>
-</mat-list>
+<mat-tab-group (selectedTabChange)="onTabChange($event)">
+  <mat-tab *ngFor="let subject of subjects" (click)="onSelectSubject(subject)" [label]="subject.subject">
+    <mat-progress-spinner *ngIf="loading" color="primary" mode="indeterminate">
+    </mat-progress-spinner>
+    <div *ngIf="!loading" class="subjects-card" fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="center flex-start">
+      <mat-card fxFlex="calc(50% - 30px)">
+        <mat-list>
+          <h3 mat-subheader> Assignments </h3>
+          <mat-list-item *ngFor="let assignment of assignments">
+            <h3 matLine>{{assignment.subject}} {{assignment.pubdate}}</h3>
+            <p matLine>{{assignment.description}}</p>
+          </mat-list-item>
+          <mat-list-item *ngIf="!assignments.length && !loading">
+            No Assignments
+          </mat-list-item>
+          <mat-progress-spinner *ngIf="loading" color="primary" mode="indeterminate">
+          </mat-progress-spinner>
+        </mat-list>
+      </mat-card>
+      <mat-card fxFlex="calc(50% - 30px)">
+        <mat-list>
+          <h3 mat-subheader> Tests </h3>
+          <mat-list-item *ngFor="let test of tests">
+            <h3 matLine>{{test.title}}</h3>
+          </mat-list-item>
+
+          <mat-list-item *ngIf="!tests.length && !loading">
+            No Tests
+          </mat-list-item>
+
+          <mat-progress-spinner *ngIf="loading" color="primary" mode="indeterminate">
+          </mat-progress-spinner>
+        </mat-list>
+      </mat-card>
+      <mat-card fxFlex="calc(50% - 30px)">
+        <mat-list>
+          <h3 mat-subheader> Activites </h3>
+
+          <mat-list-item *ngFor="let activity of activities">
+            {{activity.id}}
+          </mat-list-item>
+
+          <mat-list-item *ngIf="!activities.length && !loading">
+            No Activities
+          </mat-list-item>
+          <mat-progress-spinner *ngIf="loading" color="primary" mode="indeterminate">
+          </mat-progress-spinner>
+        </mat-list>
+      </mat-card>
+      <mat-card fxFlex="calc(50% - 30px)">{{tests | json}}</mat-card>
+    </div>
+  </mat-tab>
+</mat-tab-group>

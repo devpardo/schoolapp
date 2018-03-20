@@ -1,5 +1,5 @@
 import { AuthService } from "./../../services/auth/auth.service";
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { SubjectsService } from "../../services/data/subjects.service";
 import { ActivatedRoute, Router } from "@angular/router";
 
@@ -21,20 +21,24 @@ export class SubjectComponent implements OnInit {
   ) {}
 
   async ngOnInit() {
-    this.route.params.subscribe(async params => {
-      this.loading = true;
-      const [assignments, tests, activities] = await Promise.all([
-        this.authService.getAuthSubjectAssignments(params.id),
-        this.authService.getAuthSubjectTests(params.id),
-        this.authService.getAuthSubjectActivites(params.id)
-      ]);
-      this.assignments = assignments;
-      this.tests = tests;
-      this.activities = this.activities;
-      this.loading = false;
-    });
+    this.route.params.subscribe(
+      async params => await this.loadSubject(params.id)
+    );
   }
   onSelectTest(test) {
     this.router.navigate([`auth/tests`, test.id]);
+  }
+
+  async loadSubject(id) {
+    this.loading = true;
+    const [assignments, tests, activities] = await Promise.all([
+      this.authService.getAuthSubjectAssignments(id),
+      this.authService.getAuthSubjectTests(id),
+      this.authService.getAuthSubjectActivites(id)
+    ]);
+    this.assignments = assignments;
+    this.tests = tests;
+    this.activities = this.activities;
+    this.loading = false;
   }
 }
