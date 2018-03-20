@@ -2,12 +2,19 @@
   <mat-tab label="Overview">
 
 
-    <div class="overview-cards" fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="center">
-      <mat-card fxFlex="calc(50% - 30px)">
+    <div class="overview-cards" fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="center flex-start">
+      <mat-card fxFlex="calc(50% - 30px)" class="animated zoomIn relative" style="height: auto">
+        <mat-card-header>
+          <mat-card-title>
+            <h2>
+              Assignments
+            </h2>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-divider></mat-divider>
         <mat-tab-group>
           <mat-tab label="Current">
             <mat-list>
-              <h3 mat-subheader> Assignments </h3>
               <mat-list-item *ngFor="let assignment of assignments" (click)="onSelectSubject(assignment)">
                 <h3 matLine>{{assignment.subject}} {{assignment.pubdate}}</h3>
                 <p matLine>{{assignment.description}}</p>
@@ -16,47 +23,71 @@
           </mat-tab>
           <mat-tab label="Yesterday">
             <mat-list>
-              <h3 mat-subheader> Assignments </h3>
               <mat-list-item *ngFor="let assignment of assignments" (click)="onSelectSubject(assignment)">
                 <h3 matLine>{{assignment.subject}} {{assignment.pubdate}}</h3>
                 <p matLine>{{assignment.description}}</p>
               </mat-list-item>
             </mat-list>
           </mat-tab>
-        </mat-tab-group>
 
-      </mat-card>
-      <mat-card fxFlex="calc(50% - 30px)">
-        <mat-list>
-          <h3 mat-subheader> Assignments </h3>
-          <mat-list-item *ngFor="let assignment of assignments" (click)="onSelectSubject(assignment)">
-            <h3 matLine>{{assignment.subject}} {{assignment.pubdate}}</h3>
-            <p matLine>{{assignment.description}}</p>
-          </mat-list-item>
-        </mat-list>
-      </mat-card>
-      <mat-card fxFlex="calc(50% - 30px)">
-        <mat-list>
-          <h3 mat-subheader> Assignments </h3>
-          <mat-list-item *ngFor="let assignment of assignments" (click)="onSelectSubject(assignment)">
-            <h3 matLine>{{assignment.subject}} {{assignment.pubdate}}</h3>
-            <p matLine>{{assignment.description}}</p>
-          </mat-list-item>
-        </mat-list>
-        <mat-card-footer>
-          <button mat-button>
-            Go to yehey
+        </mat-tab-group>
+        <mat-card-actions>
+          <button class="float-right" routerLink="/auth/assignments" mat-button>
+            Go to Assignments
           </button>
-        </mat-card-footer>
+        </mat-card-actions>
       </mat-card>
-      <mat-card fxFlex="calc(50% - 30px)">
+
+      <mat-card fxFlex="calc(50% - 30px)" class="animated zoomIn">
+        <mat-card-header>
+          <mat-card-title>
+            <h2>
+              Schedules
+            </h2>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-divider></mat-divider>
+        <mat-tab-group>
+          <mat-tab label="Today">
+            <mat-list>
+              <mat-list-item *ngFor="let schedule of schedules" (click)="onSelectSubject(schedule)">
+                <h3 matLine>{{schedule.subject}}</h3>
+                <p matLine>{{schedule.schedule}}</p>
+              </mat-list-item>
+            </mat-list>
+          </mat-tab>
+          <mat-tab label="Tomorrow">
+            <mat-list>
+              <mat-list-item *ngFor="let schedule of schedules" (click)="onSelectSubject(schedule)">
+                <h3 matLine>{{schedule.subject}}</h3>
+                <p matLine>{{schedule.schedule}}</p>
+              </mat-list-item>
+            </mat-list>
+          </mat-tab>
+
+        </mat-tab-group>
+        <mat-card-actions class="float-right">
+          <button routerLink="/auth/assignments" mat-button>
+            Go to Assignments
+          </button>
+        </mat-card-actions>
+      </mat-card>
+      <mat-card fxFlex="100" class="animated zoomIn">
+        <mat-card-header>
+          <mat-card-title>
+            <h2>
+              Calendar
+            </h2>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-divider></mat-divider>
         <mat-list>
-          <h3 mat-subheader> Assignments </h3>
           <mat-list-item *ngFor="let assignment of assignments" (click)="onSelectSubject(assignment)">
             <h3 matLine>{{assignment.subject}} {{assignment.pubdate}}</h3>
             <p matLine>{{assignment.description}}</p>
           </mat-list-item>
         </mat-list>
+
       </mat-card>
       <!-- <mat-card fxFlex="calc(50% - 10px)" fxFlex.xs="100%" *ngFor="let schedule of schedules" class="animated zoomIn schedule-card">
         <mat-card-header>
