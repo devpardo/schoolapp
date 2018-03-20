@@ -23,6 +23,7 @@ import { SubjectComponent } from "./pages/subject/subject.component";
 import { TestComponent } from "./pages/test/test.component";
 import { MaterialModule } from "./material.module";
 
+import { FlexLayoutModule } from "@angular/flex-layout";
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +47,8 @@ import { MaterialModule } from "./material.module";
     AppRoutingModule,
     ServicesModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

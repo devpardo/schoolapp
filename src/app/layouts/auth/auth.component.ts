@@ -10,6 +10,7 @@ import { BreakpointObserver } from "@angular/cdk/layout";
 })
 export class AuthComponent implements OnInit {
   isMobile = false;
+  active = true;
   routes = [];
   constructor(
     public authService: AuthService,
@@ -17,7 +18,12 @@ export class AuthComponent implements OnInit {
     breakpointObserver: BreakpointObserver
   ) {
     const layoutChanges = breakpointObserver.observe(["(max-width: 599px)"]);
-    layoutChanges.subscribe(({ matches }) => (this.isMobile = matches));
+    layoutChanges.subscribe(({ matches }) => {
+      this.isMobile = matches;
+      if (matches) {
+        this.active = !this.isMobile;
+      }
+    });
   }
   async ngOnInit() {
     this.routes = [
