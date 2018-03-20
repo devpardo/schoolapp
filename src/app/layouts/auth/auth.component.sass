@@ -9,14 +9,23 @@
   border: 1px solid #1F2B35
 
 mat-sidenav
+  margin-top: 56px
   width: 300px
   background: rgba(28, 43, 54,.75)
+  transition: width .3s ease-in-out
   &.mini
-    width: 56px
-.sidenav
-  margin-top: 64px
+    width: 64px
+
+a[mat-list-item]
+  color: white !important
+  transition: background .5s ease-in-out, border-right .3s ease-in
+
+.active-link, .mat-list-item-focus
+  background: #4A9B91 !important
+  border-right: 10px solid #265E63
+
+.fixed
   position: fixed
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+
+.z-absolute
+  z-index: 10

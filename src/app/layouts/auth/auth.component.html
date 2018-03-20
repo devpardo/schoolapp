@@ -1,7 +1,7 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="primary" class="fixed z-absolute">
 
   <mat-toolbar-row>
-    <button mat-icon-button (click)="onToggleDrawer()">
+    <button mat-icon-button (click)="nav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
 
@@ -43,21 +43,20 @@
   </mat-toolbar-row>
 
 </mat-toolbar>
-
-<mat-sidenav-container class="sidenav" color="primary">
-  <mat-sidenav mode="side" [opened]="active">
+<mat-sidenav-container color="primary">
+  <mat-sidenav mode="side" [opened]="true" class="sidenav" [class.mini]="isMobile" #nav mode="side" [fixedInViewport]="true">
     <mat-nav-list>
-      <mat-list-item *ngFor="let route of routes" (click)="onNavigateTo(route)">
+      <a mat-list-item *ngFor="let route of routes" [routerLink]="route.link" routerLinkActive="active-link">
+        <mat-icon matListIcon>{{route.icon}}</mat-icon>
         <h4 mat-line>{{route.name}}</h4>
-        <p mat-line> {{route.link}} </p>
-      </mat-list-item>
+      </a>
     </mat-nav-list>
   </mat-sidenav>
-  <mat-sidenav-content>
+  <mat-sidenav-content style="margin-top: 64px">
     <mat-toolbar *ngIf="authService.auth.type === 'p' && authService.student">
       <mat-toolbar-row>
         <img class="avatar" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" alt="">
-        <span>{{authService.student.firstname}}</span>
+        <span>{{ authService.student.firstname }} {{ authService.student.grade }} - {{ authService.student.section }} </span>
       </mat-toolbar-row>
     </mat-toolbar>
     <router-outlet></router-outlet>

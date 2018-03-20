@@ -24,7 +24,7 @@ export class AuthService {
     private subjectsService: SubjectsService,
     private router: Router
   ) {
-    this.getAuth();
+    (async () => await this.getAuth())();
   }
 
   async login(email: string, password: string) {
@@ -48,7 +48,7 @@ export class AuthService {
     console.log(token);
     localStorage.setItem("token", token);
     localStorage.setItem("info", info);
-    this.getAuth();
+    await this.getAuth();
     return user;
   }
 
@@ -62,13 +62,13 @@ export class AuthService {
   async getAuth() {
     this.token = localStorage.getItem("token");
     const info = localStorage.getItem("info");
+    console.log(this.token);
     if (this.token) {
       // const { id } = JSON.parse(atob(this.token));
       const user = JSON.parse(atob(info));
       this.auth = user;
       this.auth.image =
         "https://scontent.fmnl6-1.fna.fbcdn.net/v/t31.0-8/477597_10150879126872986_1945926737_o.jpg?oh=4609ecaed7f0e82ebc55d39b1c8e9cca&oe=5B448285";
-      this.router.navigate(["auth/overview"]);
       await this.getRole();
     }
   }
@@ -84,10 +84,10 @@ export class AuthService {
     if (this.auth.type === "p") {
       await this.getParentInfo();
     } else if (this.auth.type === "s") {
-      console.log("STUDENT");
       const student = await this.getStudentInfo(this.auth.ident);
       this.student = student;
     }
+    this.router.navigate(["auth/overview"]);
   }
 
   async getParentInfo() {
@@ -126,6 +126,9 @@ export class AuthService {
   }
 
   async getAuthAssignments() {
+    if (!this.student) {
+      return;
+    }
     return this.assignmentsService.getCurrentDayAssignments(
       this.student.grade,
       this.student.section

@@ -7,7 +7,10 @@ import { MatMenuModule } from "@angular/material/menu";
 import { MatListModule } from "@angular/material/list";
 import { MatTabsModule } from "@angular/material/tabs";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
-
+import { MatDividerModule } from "@angular/material/divider";
+import { MatGridListModule } from "@angular/material/grid-list";
+import { LayoutModule } from "@angular/cdk/layout";
+import { MatCardModule } from "@angular/material/card";
 @NgModule({
   // imports: [
   //   MatSidenavModule,
@@ -26,7 +29,11 @@ import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
     MatMenuModule,
     MatListModule,
     MatTabsModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatDividerModule,
+    MatGridListModule,
+    LayoutModule,
+    MatCardModule
   ]
 })
 export class MaterialModule {}

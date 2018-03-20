@@ -1,6 +1,7 @@
 import { Router } from "@angular/router";
 import { Component, OnInit } from "@angular/core";
 import { AuthService } from "../../services/auth/auth.service";
+import { BreakpointObserver } from "@angular/cdk/layout";
 
 @Component({
   selector: "app-auth",
@@ -8,55 +9,61 @@ import { AuthService } from "../../services/auth/auth.service";
   styleUrls: ["./auth.component.sass"]
 })
 export class AuthComponent implements OnInit {
-  active = true;
-
+  isMobile = false;
   routes = [];
-  constructor(public authService: AuthService, private router: Router) {}
+  constructor(
+    public authService: AuthService,
+    private router: Router,
+    breakpointObserver: BreakpointObserver
+  ) {
+    const layoutChanges = breakpointObserver.observe(["(max-width: 599px)"]);
+    layoutChanges.subscribe(({ matches }) => (this.isMobile = matches));
+  }
   async ngOnInit() {
     this.routes = [
       {
         name: "Overview",
-        link: "auth/overview"
+        link: "/auth/overview",
+        icon: "dashboard"
       },
       {
         name: "Assignments",
-        link: "auth/assignments"
+        link: "/auth/assignments",
+        icon: "assignments"
       },
       {
         name: "Subjects",
-        link: "auth/subjects"
+        link: "/auth/subjects",
+        icon: "assignments"
       },
       {
         name: "Student Profile",
-        link: "auth/profile"
+        link: "/auth/profile",
+        icon: "face"
       },
       {
         name: "Teachers",
-        link: "auth/directory/teachers"
+        link: "/auth/directory/teachers",
+        icon: "school"
       },
       {
         name: "Classmates",
-        link: "auth/directory/classmates"
+        link: "/auth/directory/classmates",
+        icon: "people"
       },
       {
         name: "Staff",
-        link: "auth/directory/staff"
+        link: "/auth/directory/staff",
+        icon: "school"
       }
     ];
-    // if (this.authService.auth.type === "p") {
-    //   this.routes.push({
-    //     name: "Reply Slips",
-    //     link: "auth/slips"
-    //   });
-    // }
-  }
-
-  onToggleDrawer() {
-    this.active = !this.active;
-  }
-
-  onNavigateTo(route) {
-    this.router.navigate([route.link]);
+    if (this.authService.auth.type === "p") {
+      this.routes.push({
+        name: "Reply Slips",
+        link: "auth/slips",
+        icon: "message"
+      });
+    }
   }
 
   onSelectChild(child) {

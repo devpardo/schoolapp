@@ -1,4 +1,23 @@
-<pre>
-  {{authService.auth | json}}
-  {{authService.student | json}}
-</pre>
+<mat-tab-group>
+  <mat-tab label="Overview">
+    <mat-list>
+      <h3 mat-subheader> Assignments </h3>
+      <mat-list-item *ngFor="let assignment of assignments" (click)="onSelectSubject(assignment)">
+        <h3 matLine>{{assignment.subject}} {{assignment.pubdate}}</h3>
+        <p matLine>{{assignment.description}}</p>
+      </mat-list-item>
+    </mat-list>
+
+    <mat-list>
+      <h3 mat-subheader> Schedule for the day </h3>
+      <mat-list-item *ngFor="let schedule of schedules">
+        <h3 matLine>{{schedule.subject}}</h3>
+        <p matLine>{{schedule.schedule}}</p>
+      </mat-list-item>
+    </mat-list>
+
+  </mat-tab>
+  <mat-tab label="Attendance"></mat-tab>
+  <mat-tab label="Grades"></mat-tab>
+  <mat-tab label="Class"></mat-tab>
+</mat-tab-group>

@@ -1,5 +1,6 @@
 import { AuthService } from "./../../services/auth/auth.service";
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-overview",
@@ -7,7 +8,19 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./overview.component.sass"]
 })
 export class OverviewComponent implements OnInit {
-  constructor(public authService: AuthService) {}
+  assignments = [];
+  schedules = [];
+  constructor(public authService: AuthService, private router: Router) {}
 
-  ngOnInit() {}
+  async ngOnInit() {
+    await this.authService.getAuth();
+    [this.assignments, this.schedules] = await Promise.all([
+      this.authService.getAuthAssignments(),
+      this.authService.getAuthCurrentDaySchedule()
+    ]);
+  }
+
+  onSelectSubject(subject) {
+    this.router.navigate([`auth/subjects`, subject.subject]);
+  }
 }

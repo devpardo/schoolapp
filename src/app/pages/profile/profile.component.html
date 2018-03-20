@@ -1,6 +1,8 @@
 <mat-tab-group>
   <mat-tab label="Basic Info">
-    <pre>{{authService.student | json}}</pre>
+    <mat-card>
+      <pre>{{authService.student | json}}</pre>
+    </mat-card>
   </mat-tab>
   <mat-tab label="Achievements"></mat-tab>
 </mat-tab-group>
