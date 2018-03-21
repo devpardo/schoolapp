@@ -1,4 +1,5 @@
 import { Router } from "@angular/router";
+import { ViewEncapsulation } from "@angular/core";
 import { Component, OnInit } from "@angular/core";
 import { AuthService } from "../../services/auth/auth.service";
 import { BreakpointObserver } from "@angular/cdk/layout";
@@ -6,7 +7,8 @@ import { BreakpointObserver } from "@angular/cdk/layout";
 @Component({
   selector: "app-auth",
   templateUrl: "./auth.component.html",
-  styleUrls: ["./auth.component.sass"]
+  styleUrls: ["./auth.component.sass"],
+  encapsulation: ViewEncapsulation.None
 })
 export class AuthComponent implements OnInit {
   isMobile = false;

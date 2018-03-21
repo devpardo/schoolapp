@@ -11,6 +11,8 @@ import { MatDividerModule } from "@angular/material/divider";
 import { MatGridListModule } from "@angular/material/grid-list";
 import { LayoutModule } from "@angular/cdk/layout";
 import { MatCardModule } from "@angular/material/card";
+import { MatChipsModule } from "@angular/material/chips";
+import { MatTableModule } from "@angular/material/table";
 @NgModule({
   // imports: [
   //   MatSidenavModule,
@@ -33,7 +35,9 @@ import { MatCardModule } from "@angular/material/card";
     MatDividerModule,
     MatGridListModule,
     LayoutModule,
-    MatCardModule
+    MatCardModule,
+    MatChipsModule,
+    MatTableModule
   ]
 })
 export class MaterialModule {}

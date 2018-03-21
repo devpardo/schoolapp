@@ -1,18 +1,19 @@
 <mat-toolbar color="primary" class="fixed z-absolute">
 
-  <mat-toolbar-row>
+  <mat-toolbar-row class="header-toolbar">
+    <a href="#" class="navbar-logo clearfix">
+      <span>stp</span>Central</a>
+
     <button mat-icon-button (click)="nav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
-
-    stpCentral
     <span class="flex-spacer">
     </span>
 
-    <h3 *ngIf="isParent">
+    <h3 *ngIf="isParent" class="toolbar-text">
       Hello, {{authService.auth.user}}
     </h3>
-    <button class="children-button" mat-icon-button [matMenuTriggerFor]="children" *ngIf="isParent">
+    <button class="children-button spacer" mat-icon-button [matMenuTriggerFor]="children" *ngIf="isParent">
       <mat-icon>
         people
       </mat-icon>
@@ -20,14 +21,18 @@
         {{authService.auth.children.length}}
       </span>
     </button>
-    <mat-menu #children="matMenu">
+    <mat-menu class="children-menu" #children="matMenu" [overlapTrigger]="false" yPosition="below">
       <mat-list>
         <h3 mat-subheader>Children</h3>
 
-        <mat-list-item *ngFor="let child of authService.auth.children" (click)="onSelectChild(child)">
-          <img [src]="child.image" class="avatar">
-          <h4 mat-line>{{child.firstname}}</h4>
-          <p mat-line> {{child.lastname}} </p>
+        <mat-list-item class="child-list" *ngFor="let child of authService.auth.children" (click)="onSelectChild(child)">
+          <div class="spacer">
+            <img [src]="child.image" class="avatar">
+          </div>
+          <div class="">
+            <h4 mat-line>{{child.firstname}}{{child.lastname}}</h4>
+          </div>
+          <mat-divider [inset]="true" *ngIf="last"></mat-divider>
         </mat-list-item>
 
       </mat-list>
@@ -35,11 +40,16 @@
 
     <img [src]="authService.auth.image" class="avatar" [matMenuTriggerFor]="menu">
 
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item (click)="authService.logout()">
-        <mat-icon>exit_to_app</mat-icon>
-        <span>Logout</span>
-      </button>
+    <mat-menu #menu="matMenu" [overlapTrigger]="false" yPosition="below">
+      <mat-list>
+        <mat-list-item>
+          <button mat-menu-item (click)="authService.logout()">
+            <mat-icon>exit_to_app</mat-icon>
+            <span>Logout</span>
+          </button>
+        </mat-list-item>
+      </mat-list>
+
     </mat-menu>
 
   </mat-toolbar-row>

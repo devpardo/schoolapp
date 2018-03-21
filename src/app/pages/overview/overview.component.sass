@@ -25,3 +25,27 @@
 
 .float-right
   float: right
+
+.mat-chip
+  line-height: 1em
+  padding: 9px
+  font-size: .8em
+  text-transform: uppercase
+.mat-chip,h3,p
+  &:first-letter
+    text-transform: uppercase
+
+table.tb-assignments
+  margin: 5px auto
+  width: 100%
+  color: #666666
+  tr
+    height: 50px
+    cursor: pointer
+    td
+      font-size: 14px
+      &.desc
+        width: 50%
+      &.date
+        font-size: 13px
+        white-space: nowrap

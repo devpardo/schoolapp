@@ -14,20 +14,56 @@
         <mat-divider></mat-divider>
         <mat-tab-group>
           <mat-tab label="Current">
-            <mat-list>
+            <table class="tb-assignments">
+              <tr>
+                <td>Date</td>
+                <td>Subject</td>
+                <td>Info</td>
+                <td>Teacher</td>
+              </tr>
+              <tr *ngFor="let assignment of assignments" (click)="onSelectSubject(assignment)">
+                <td class="date"> {{assignment.pubdate}}</td>
+                <td>
+                  <mat-chip-list>
+                    <mat-chip color="primary" selected="true">{{assignment.subject}}</mat-chip>
+                  </mat-chip-list>
+                </td>
+                <td class="desc">{{assignment.description}}</td>
+                <td>{{assignment.tchr_fname}} {{assignment.tchr_lname}}</td>
+              </tr>
+            </table>
+            <!-- <mat-list>
               <mat-list-item *ngFor="let assignment of assignments" (click)="onSelectSubject(assignment)">
-                <h3 matLine>{{assignment.subject}} {{assignment.pubdate}}</h3>
-                <p matLine>{{assignment.description}}</p>
+                <mat-chip-list>
+                  
+                </mat-chip-list>
+                <h3 matLine></h3>
+                <p matLine>
+                 
+                </p>
+                <mat-divider [inset]="true" *ngIf="!last"></mat-divider>
               </mat-list-item>
-            </mat-list>
+            </mat-list> -->
           </mat-tab>
           <mat-tab label="Yesterday">
-            <mat-list>
-              <mat-list-item *ngFor="let assignment of assignments" (click)="onSelectSubject(assignment)">
-                <h3 matLine>{{assignment.subject}} {{assignment.pubdate}}</h3>
-                <p matLine>{{assignment.description}}</p>
-              </mat-list-item>
-            </mat-list>
+            <table class="tb-assignments">
+              <tr>
+                <td>Date</td>
+                <td>Subject</td>
+                <td>Info</td>
+                <td>Teacher</td>
+              </tr>
+              <tr *ngFor="let assignment of assignments" (click)="onSelectSubject(assignment)">
+                <td class="date"> {{assignment.pubdate}}</td>
+                <td>
+                  <mat-chip-list>
+                    <mat-chip color="primary" selected="true">{{assignment.subject}}</mat-chip>
+                  </mat-chip-list>
+                </td>
+                <td class="desc">{{assignment.description}}</td>
+                <td>{{assignment.tchr_fname}} {{assignment.tchr_lname}}</td>
+              </tr>
+            </table>
           </mat-tab>
 
         </mat-tab-group>
@@ -49,20 +85,47 @@
         <mat-divider></mat-divider>
         <mat-tab-group>
           <mat-tab label="Today">
-            <mat-list>
+            <table class="tb-assignments">
+              <tr>
+                <td>Time</td>
+                <td>Subject</td>
+                <td>Teacher</td>
+              </tr>
+              <tr *ngFor="let schedule of schedules" (click)="onSelectSubject(schedule)">
+                <td>{{schedule.schedule}}</td>
+                <td>
+                  <mat-chip-list>
+                    <mat-chip color="primary" selected="true">{{schedule.subject}}</mat-chip>
+                  </mat-chip-list>
+                </td>
+                <td>{{schedule.tchr_fname}}</td>
+              </tr>
+            </table>
+            <!-- <mat-list>
               <mat-list-item *ngFor="let schedule of schedules" (click)="onSelectSubject(schedule)">
                 <h3 matLine>{{schedule.subject}}</h3>
                 <p matLine>{{schedule.schedule}}</p>
+                <mat-divider [inset]="true" *ngIf="!last"></mat-divider>
               </mat-list-item>
-            </mat-list>
+            </mat-list> -->
           </mat-tab>
           <mat-tab label="Tomorrow">
-            <mat-list>
-              <mat-list-item *ngFor="let schedule of schedules" (click)="onSelectSubject(schedule)">
-                <h3 matLine>{{schedule.subject}}</h3>
-                <p matLine>{{schedule.schedule}}</p>
-              </mat-list-item>
-            </mat-list>
+            <table class="tb-assignments">
+              <tr>
+                <td>Time</td>
+                <td>Subject</td>
+                <td>Teacher</td>
+              </tr>
+              <tr *ngFor="let schedule of schedules" (click)="onSelectSubject(schedule)">
+                <td>{{schedule.schedule}}</td>
+                <td>
+                  <mat-chip-list>
+                    <mat-chip color="primary" selected="true">{{schedule.subject}}</mat-chip>
+                  </mat-chip-list>
+                </td>
+                <td>{{schedule.tchr_fname}}</td>
+              </tr>
+            </table>
           </mat-tab>
 
         </mat-tab-group>
@@ -85,6 +148,7 @@
           <mat-list-item *ngFor="let assignment of assignments" (click)="onSelectSubject(assignment)">
             <h3 matLine>{{assignment.subject}} {{assignment.pubdate}}</h3>
             <p matLine>{{assignment.description}}</p>
+            <mat-divider [inset]="true" *ngIf="!last"></mat-divider>
           </mat-list-item>
         </mat-list>
 

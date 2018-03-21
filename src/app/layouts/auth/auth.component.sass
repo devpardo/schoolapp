@@ -3,18 +3,60 @@
 
 .avatar
   border-radius: 50%
-  width: 45px
-  height: 45px
+  width: 36px
+  height: 36px
   cursor: pointer
   border: 1px solid #1F2B35
 
-mat-sidenav
+a
+  transition: color .2s ease
+
+.header-toolbar
+  padding: 0 32px 0 40px
+
+  a.navbar-logo
+    text-decoration: none
+    color: inherit
+    display: block
+    font-size: 24px
+    font-family: Roboto,sans-serif
+    white-space: nowrap
+    margin: 0 10px
+
+    &:hover
+      color: #1b867b
+
+    span
+      color: #209e91
+  
+  .toolbar-text
+    font-size: 14px
+  
+.cdk-overlay-container .mat-menu-panel.children-menu
+  min-width: 316px
+  max-width: 350px
+
+.sidenav
   margin-top: 56px
   width: 300px
-  background: rgba(28, 43, 54,.75)
+  background: #1C2B36
   transition: width .3s ease-in-out
+
+  a
+    transition: color .2s ease
+    &.active-link
+      &:hover
+        color: #ffffff !important
+
+
+    &:hover
+      color: #209e91!important
+  
+  mat-icon
+    font-size: 16px!important
   &.mini
     width: 64px
+
 mat-sidenav-content
   margin-top: 64px
   min-height: 100vh
@@ -32,3 +74,31 @@ a[mat-list-item]
 
 .z-absolute
   z-index: 10
+
+.spacer
+  margin: 0 20px!important
+
+.child-list
+  cursor: pointer
+  border-bottom: 1px solid #DCDCDC
+  &:last-child
+    border-bottom: 0
+  &:hover
+    background: #E2F0FF
+
+.badge
+    display: inline-block
+    min-width: 6px
+    padding: 2px 4px
+    color: #fff
+    vertical-align: baseline
+    white-space: nowrap
+    text-align: center
+    border-radius: 13px
+    text-shadow: none
+    line-height: 11px
+    background-color: #209e91
+    position: absolute
+    top: 5px
+    right: -1px
+    font-size: 11px
