@@ -1,26 +1,25 @@
 <mat-toolbar color="primary" class="fixed z-absolute">
 
   <mat-toolbar-row class="header-toolbar">
-    <a href="#" class="navbar-logo clearfix">
-      <span>stp</span>Central</a>
-
-    <button mat-icon-button (click)="nav.toggle()">
+    <button class="btn-menu" mat-icon-button (click)="nav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
+    <a href="#" class="navbar-logo clearfix">
+      <span>stp-</span>Central</a>
     <span class="flex-spacer">
     </span>
 
-    <h3 *ngIf="isParent" class="toolbar-text">
-      Hello, {{authService.auth.user}}
-    </h3>
-    <button class="children-button spacer" mat-icon-button [matMenuTriggerFor]="children" *ngIf="isParent">
-      <mat-icon>
-        people
-      </mat-icon>
-      <span class="badge">
-        {{authService.auth.children.length}}
-      </span>
-    </button>
+    <div class="navbar-button">
+      <button class="children-button spacer" mat-icon-button [matMenuTriggerFor]="children" *ngIf="isParent">
+        <mat-icon>
+          people
+        </mat-icon>
+        <span class="badge">
+          {{authService.auth.children.length}}
+        </span>
+      </button>
+    </div>
+
     <mat-menu class="children-menu" #children="matMenu" [overlapTrigger]="false" yPosition="below">
       <mat-list>
         <h3 mat-subheader>Children</h3>
@@ -34,11 +33,12 @@
           </div>
           <mat-divider [inset]="true" *ngIf="last"></mat-divider>
         </mat-list-item>
-
       </mat-list>
     </mat-menu>
 
-    <img [src]="authService.auth.image" class="avatar" [matMenuTriggerFor]="menu">
+    <div class="nav-item">
+      <img [src]="authService.auth.image" class="avatar" [matMenuTriggerFor]="menu">
+    </div>
 
     <mat-menu #menu="matMenu" [overlapTrigger]="false" yPosition="below">
       <mat-list>
@@ -49,14 +49,20 @@
           </button>
         </mat-list-item>
       </mat-list>
-
     </mat-menu>
+
+    <h3 *ngIf="isParent" class="toolbar-text">
+      {{authService.auth.user}}
+    </h3>
+
+
+
 
   </mat-toolbar-row>
 
 </mat-toolbar>
 <mat-sidenav-container color="primary">
-  <mat-sidenav mode="side" [(opened)]="active" class="sidenav" [class.mini]="isMobile" #nav mode="side" [fixedInViewport]="true">
+  <mat-sidenav mode="side" [(opened)]="active" class="sidenav spacing" [class.mini]="isMobile" #nav mode="side" [fixedInViewport]="true">
     <mat-nav-list>
       <a mat-list-item *ngFor="let route of routes" [routerLink]="route.link" routerLinkActive="active-link">
         <mat-icon matListIcon>{{route.icon}}</mat-icon>
@@ -64,10 +70,10 @@
       </a>
     </mat-nav-list>
   </mat-sidenav>
-  <mat-sidenav-content>
-    <mat-toolbar *ngIf="authService.auth.type === 'p' && authService.student">
+  <mat-sidenav-content class="spacing">
+    <mat-toolbar class="tab-bar" *ngIf="authService.auth.type === 'p' && authService.student">
       <mat-toolbar-row>
-        <img class="avatar" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" alt="">
+        <img class="avatar spacer" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" alt="">
         <span>{{ authService.student.firstname }} {{ authService.student.grade }} - {{ authService.student.section }} </span>
       </mat-toolbar-row>
     </mat-toolbar>

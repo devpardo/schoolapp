@@ -1,7 +1,20 @@
-<mat-list>
-  <h3 mat-subheader>Teachers</h3>
-  <mat-list-item *ngFor="let teacher of teachers">
-    <img matListAvatar src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" alt="">
-    <div matLine> {{teacher.firstname}} </div>
-  </mat-list-item>
-</mat-list>
+<div class="overview-cards" fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="center flex-start">
+  <mat-card fxFlex="calc(50% - 30px)" class="animated zoomIn relative" style="height: auto">
+    <mat-card-header>
+      <mat-card-title>
+        <h2>
+          Teachers
+        </h2>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-list>
+      <mat-list-item *ngFor="let teacher of teachers">
+        <img matListAvatar src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" alt="">
+        <div matLine> {{teacher.firstname}} </div>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+    </mat-list>
+  </mat-card>
+
+</div>

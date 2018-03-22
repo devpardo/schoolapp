@@ -3,57 +3,64 @@
 
 .avatar
   border-radius: 50%
-  width: 36px
-  height: 36px
+  width: 2.5rem
+  height: 2.5rem
   cursor: pointer
-  border: 1px solid #1F2B35
-
-a
-  transition: color .2s ease
+  border: 2px solid #bcc3cc
 
 .header-toolbar
   padding: 0 32px 0 40px
+  height: 76px!important
+  -webkit-box-shadow: 0 2px 12px 0 #dfe3eb
+  box-shadow: 0 2px 12px 0 #dfe3eb
+  color: #000
 
   a.navbar-logo
     text-decoration: none
     color: inherit
     display: block
     font-size: 24px
-    font-family: Roboto,sans-serif
+    font-family: Exo,sans-serif
     white-space: nowrap
     margin: 0 10px
-
-    &:hover
-      color: #1b867b
-
+    color: #000000
+    padding: 0 15px
+    border-left: 1px solid #ebeef2
+    
+    
     span
-      color: #209e91
+      font-weight: 700
   
   .toolbar-text
-    font-size: 14px
+    font-size: 1rem
+    font-family: Exo
+
+  .children-button
+    color: #a4abb3
+  
+  .navbar-button
+    border-left: 1px solid #ebeef2
+    border-right: 1px solid #ebeef2
+
+  .nav-item
+    padding: 0 15px
   
 .cdk-overlay-container .mat-menu-panel.children-menu
   min-width: 316px
   max-width: 350px
-
+.spacing
+  margin-top: 6rem
 .sidenav
-  margin-top: 56px
-  width: 300px
-  background: #1C2B36
+  width: 256px
+  border-top-right-radius: .375rem
   transition: width .3s ease-in-out
+  color: #000000
+  -webkit-box-shadow: 0 2px 12px 0 #dfe3eb
+  box-shadow: 0 2px 12px 0 #dfe3eb
 
-  a
-    transition: color .2s ease
-    &.active-link
-      &:hover
-        color: #ffffff !important
-
-
-    &:hover
-      color: #209e91!important
-  
   mat-icon
-    font-size: 16px!important
+    color: #a4abb3
+
   &.mini
     width: 64px
 
@@ -62,12 +69,23 @@ mat-sidenav-content
   min-height: 100vh
 
 a[mat-list-item]
-  color: white !important
-  transition: background .5s ease-in-out, border-right .3s ease-in
+  font-family: Exo,sans-serif
+  font-size: 1rem
+  color: #4b4b4b
+  padding: 6px
+  border-bottom: 1px solid #eceef3
+
+
+  &:hover
+    color: #2a2a2a !important
+    font-weight: 600 
 
 .active-link, .mat-list-item-focus
-  background: #4A9B91 !important
-  border-right: 10px solid #265E63
+  color: #2a2a2a !important
+  mat-icon
+    color: #2a2a2a !important
+  h4
+    font-weight: 600 !important
 
 .fixed
   position: fixed
@@ -85,7 +103,12 @@ a[mat-list-item]
     border-bottom: 0
   &:hover
     background: #E2F0FF
-
+.mat-drawer-container
+  background: #ECEFF5
+.tab-bar
+  background: transparent!important
+  font-family: Exo
+  font-weight: 600
 .badge
     display: inline-block
     min-width: 6px
