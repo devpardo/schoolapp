@@ -44,11 +44,11 @@ export class AuthComponent implements OnInit {
         link: "/auth/subjects",
         icon: "assignments"
       },
-      {
-        name: "Student Profile",
-        link: "/auth/profile",
-        icon: "face"
-      },
+      // {
+      //   name: "Student Profile",
+      //   link: "/auth/profile",
+      //   icon: "face"
+      // },
       {
         name: "Teachers",
         link: "/auth/directory/teachers",

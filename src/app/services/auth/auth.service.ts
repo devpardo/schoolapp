@@ -158,6 +158,9 @@ export class AuthService {
   }
 
   async getAuthSubjectAssignments(subject) {
+    if (!this.student) {
+      await this.getAuth();
+    }
     return this.subjectsService.getSubjectAssignments(
       subject,
       this.student.grade,
@@ -183,6 +186,27 @@ export class AuthService {
     return this.teachersService.getTeachers(
       this.student.grade,
       this.student.section
+    );
+  }
+
+  async getAuthSubjectAssignmentsByDate(date) {
+    if (!this.student) {
+      await this.getAuth();
+    }
+    return this.assignmentsService.getAssignmentsByDate(
+      this.student.grade,
+      this.student.section,
+      date
+    );
+  }
+  async getAuthSchedulesByDate(date) {
+    if (!this.student) {
+      await this.getAuth();
+    }
+    return this.schedulesService.getSchedulesByDate(
+      this.student.grade,
+      this.student.section,
+      date
     );
   }
 }

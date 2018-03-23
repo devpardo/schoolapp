@@ -1,7 +1,9 @@
 <mat-tab-group (selectedTabChange)="onTabChange($event)">
   <mat-tab *ngFor="let subject of subjects" (click)="onSelectSubject(subject)" [label]="subject.subject">
-    <mat-progress-spinner *ngIf="loading" color="primary" mode="indeterminate">
+    <div *ngIf="loading" style="display: flex; justify-content: center; align-items: center; min-height: calc(100vh - 300px)    ">
+    <mat-progress-spinner color="primary" mode="indeterminate">
     </mat-progress-spinner>
+  </div>
     <div *ngIf="!loading" class="subjects-card" fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="center flex-start">
       <mat-card fxFlex="calc(50% - 30px)">
         <mat-list>
