@@ -49,17 +49,17 @@ export class OverviewComponent implements OnInit {
     return new Date(date.setDate(date.getDate() - 1));
   }
 
-  onSelectAssignmentsYesterday() {
-    this.changeAssignmentByDate(this.getYesterday(this.assignmentsDate));
+  async onSelectAssignmentsYesterday() {
+    await this.changeAssignmentByDate(this.getYesterday(this.assignmentsDate));
   }
-  onSelectAssignmentsTomorrow() {
-    this.changeAssignmentByDate(this.getTomorrow(this.assignmentsDate));
+  async onSelectAssignmentsTomorrow() {
+    await this.changeAssignmentByDate(this.getTomorrow(this.assignmentsDate));
   }
-  onSelectSchedulesYesterday() {
-    this.changeSchedulesByDate(this.getYesterday(this.schedulesDate));
+  async onSelectSchedulesYesterday() {
+    await this.changeSchedulesByDate(this.getYesterday(this.schedulesDate));
   }
-  onSelectSchedulesTomorrow() {
-    this.changeSchedulesByDate(this.getTomorrow(this.schedulesDate));
+  async onSelectSchedulesTomorrow() {
+    await this.changeSchedulesByDate(this.getTomorrow(this.schedulesDate));
   }
   async changeAssignmentByDate(event) {
     this.assignmentsDate = event.value;
