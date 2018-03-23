@@ -10,6 +10,9 @@ import { Router } from "@angular/router";
 export class OverviewComponent implements OnInit {
   assignments = [];
   schedules = [];
+
+  assignmentsDate: Date = new Date();
+  schedulesDate: Date = new Date();
   constructor(public authService: AuthService, private router: Router) {}
 
   async ngOnInit() {
@@ -25,7 +28,7 @@ export class OverviewComponent implements OnInit {
   }
 
   getFormattedDate(value) {
-    const date = value;
+    const date: Date = value;
     const year: string | number = date.getFullYear();
     let month: string | number = date.getMonth() + 1;
     let day: string | number = date.getDate();
@@ -36,15 +39,37 @@ export class OverviewComponent implements OnInit {
     console.log(formattedDate);
     return formattedDate;
   }
+  getYesterday(value) {
+    const date: Date = value;
+    return new Date(date.setDate(date.getDate() + 1));
+  }
+
+  getTomorrow(value) {
+    const date: Date = value;
+    return new Date(date.setDate(date.getDate() - 1));
+  }
+
+  onSelectAssignmentsYesterday() {
+    this.changeAssignmentByDate(this.getYesterday(this.assignmentsDate));
+  }
+  onSelectAssignmentsTomorrow() {
+    this.changeAssignmentByDate(this.getTomorrow(this.assignmentsDate));
+  }
+  onSelectSchedulesYesterday() {
+    this.changeSchedulesByDate(this.getYesterday(this.schedulesDate));
+  }
+  onSelectSchedulesTomorrow() {
+    this.changeSchedulesByDate(this.getTomorrow(this.schedulesDate));
+  }
   async changeAssignmentByDate(event) {
-    console.log(event);
+    this.assignmentsDate = event.value;
     const date = this.getFormattedDate(event.value);
     this.assignments = await this.authService.getAuthSubjectAssignmentsByDate(
       date
     );
   }
   async changeSchedulesByDate(event) {
-    console.log(event);
+    this.schedulesDate = event.value;
     const date = this.getFormattedDate(event.value);
     this.schedules = await this.authService.getAuthSchedulesByDate(date);
   }
