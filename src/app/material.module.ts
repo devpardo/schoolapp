@@ -13,6 +13,9 @@ import { LayoutModule } from "@angular/cdk/layout";
 import { MatCardModule } from "@angular/material/card";
 import { MatChipsModule } from "@angular/material/chips";
 import { MatTableModule } from "@angular/material/table";
+import { MatDatepickerModule } from "@angular/material/datepicker";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatNativeDateModule } from "@angular/material";
 @NgModule({
   // imports: [
   //   MatSidenavModule,
@@ -37,7 +40,10 @@ import { MatTableModule } from "@angular/material/table";
     LayoutModule,
     MatCardModule,
     MatChipsModule,
-    MatTableModule
+    MatTableModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatNativeDateModule
   ]
 })
 export class MaterialModule {}

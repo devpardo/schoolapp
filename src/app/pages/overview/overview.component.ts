@@ -23,4 +23,29 @@ export class OverviewComponent implements OnInit {
   onSelectSubject(subject) {
     this.router.navigate([`auth/subjects`, subject.subject]);
   }
+
+  getFormattedDate(value) {
+    const date = value;
+    const year: string | number = date.getFullYear();
+    let month: string | number = date.getMonth() + 1;
+    let day: string | number = date.getDate();
+
+    month = month < 10 ? `0${month}` : month;
+    day = day < 10 ? `0${day}` : day;
+    const formattedDate = `${year}-${month}-${day}`;
+    console.log(formattedDate);
+    return formattedDate;
+  }
+  async changeAssignmentByDate(event) {
+    console.log(event);
+    const date = this.getFormattedDate(event.value);
+    this.assignments = await this.authService.getAuthSubjectAssignmentsByDate(
+      date
+    );
+  }
+  async changeSchedulesByDate(event) {
+    console.log(event);
+    const date = this.getFormattedDate(event.value);
+    this.assignments = await this.authService.getAuthSchedulesByDate(date);
+  }
 }
