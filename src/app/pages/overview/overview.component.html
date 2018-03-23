@@ -12,12 +12,13 @@
           </mat-card-title>
         </mat-card-header>
         <mat-divider></mat-divider>
+        <input matInput [matDatepicker]="picker" placeholder="Choose a date" (dateInput)="changeAssignmentByDate($event)" (dateChange)="changeAssignmentByDate($event)">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
         <mat-tab-group>
           <mat-tab label="Current">
 
-            <input matInput [matDatepicker]="picker" placeholder="Choose a date" (dateInput)="changeAssignmentByDate($event)" (dateChange)="changeAssignmentByDate($event)">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
+
 
             <table class="tb-assignments">
               <tr>
@@ -51,10 +52,7 @@
             </mat-list> -->
           </mat-tab>
           <mat-tab label="Yesterday">
-            <input matInput [matDatepicker]="pickerSchedule" placeholder="Choose a date" (dateInput)="changeSchedulesByDate($event)"
-              (dateChange)="changeSchedulesByDate($event)">
-            <mat-datepicker-toggle matSuffix [for]="pickerSchedule"></mat-datepicker-toggle>
-            <mat-datepicker #pickerSchedule></mat-datepicker>
+
             <table class="tb-assignments">
               <tr>
                 <td>Date</td>
@@ -91,6 +89,10 @@
             </h2>
           </mat-card-title>
         </mat-card-header>
+        <input matInput [matDatepicker]="pickerSchedule" placeholder="Choose a date" (dateInput)="changeSchedulesByDate($event)"
+          (dateChange)="changeSchedulesByDate($event)">
+        <mat-datepicker-toggle matSuffix [for]="pickerSchedule"></mat-datepicker-toggle>
+        <mat-datepicker #pickerSchedule></mat-datepicker>
         <mat-divider></mat-divider>
         <mat-tab-group>
           <mat-tab label="Today">
