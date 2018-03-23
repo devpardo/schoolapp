@@ -9,6 +9,7 @@ import { MatTabsModule } from "@angular/material/tabs";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { MatDividerModule } from "@angular/material/divider";
 import { MatGridListModule } from "@angular/material/grid-list";
+import { MatInputModule } from "@angular/material/input";
 import { LayoutModule } from "@angular/cdk/layout";
 import { MatCardModule } from "@angular/material/card";
 import { MatChipsModule } from "@angular/material/chips";
@@ -34,6 +35,7 @@ import { MatTableModule } from "@angular/material/table";
     MatProgressSpinnerModule,
     MatDividerModule,
     MatGridListModule,
+    MatInputModule,
     LayoutModule,
     MatCardModule,
     MatChipsModule,

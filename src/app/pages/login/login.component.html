@@ -1,3 +1,27 @@
-<input type="text" [(ngModel)]="credential.email" placeholder="Email">
-<input type="password" [(ngModel)]="credential.password" placeholder="Password">
-<button (click)="onLogin()">Login</button>
+<div class="overview">
+  <mat-card class="form">
+    <div class="container">
+      <img class="school-logo" src="https://www.shareicon.net/download/2016/07/03/790220_school_512x512.png" alt="">
+      <mat-card-title>Sign In</mat-card-title>
+      <p class="sub-head">Hello! Sign in with your username or email</p>
+      <mat-card-content>
+        <div class="login-form">
+          <div class="form-group">
+            <input class="form-control" [(ngModel)]="credential.email" placeholder="Email">
+          </div>
+
+          <div class="form-group">
+            <input class="form-control" type="password" [(ngModel)]="credential.password" placeholder="Password">
+          </div>
+          <!-- <mat-form-field class="form-full-width form-control">
+       </mat-form-field>
+      <mat-form-field class="form-full-width">
+            </mat-form-field> -->
+        </div>
+        <button mat-button class="mat-color-btn" (click)="onLogin()">Sign In</button>
+
+      </mat-card-content>
+
+    </div>
+  </mat-card>
+</div>
