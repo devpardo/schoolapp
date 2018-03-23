@@ -46,6 +46,6 @@ export class OverviewComponent implements OnInit {
   async changeSchedulesByDate(event) {
     console.log(event);
     const date = this.getFormattedDate(event.value);
-    this.assignments = await this.authService.getAuthSchedulesByDate(date);
+    this.schedules = await this.authService.getAuthSchedulesByDate(date);
   }
 }
