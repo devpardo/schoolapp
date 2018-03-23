@@ -54,10 +54,6 @@
     <h3 *ngIf="isParent" class="toolbar-text">
       {{authService.auth.user}}
     </h3>
-
-
-
-
   </mat-toolbar-row>
 
 </mat-toolbar>
@@ -75,6 +71,7 @@
       <mat-toolbar-row>
         <img class="avatar spacer" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" alt="">
         <span>{{ authService.student.firstname }} {{ authService.student.grade }} - {{ authService.student.section }} </span>
+        <button mat-button routerLink="/auth/profile">Student Profile</button>
       </mat-toolbar-row>
     </mat-toolbar>
     <router-outlet></router-outlet>

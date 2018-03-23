@@ -158,6 +158,9 @@ export class AuthService {
   }
 
   async getAuthSubjectAssignments(subject) {
+    if(!this.student) {
+    await this.getAuth()
+    }
     return this.subjectsService.getSubjectAssignments(
       subject,
       this.student.grade,

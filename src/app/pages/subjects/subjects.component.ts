@@ -20,6 +20,7 @@ export class SubjectsComponent implements OnInit {
   constructor(public authService: AuthService, private router: Router) {}
 
   async ngOnInit() {
+
     this.subjects = await this.authService.getAuthSubjects();
     this.subjects = this.subjects.map(subject => {
       subject.link = `/auth/subjects/${subject.subject}`;
