@@ -5,22 +5,25 @@
     <div class="overview-cards" fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="center flex-start">
       <mat-card fxFlex="calc(50% - 30px)" fxFlex.xs="100" class="animated zoomIn relative" style="height: auto">
         <mat-card-header>
+
           <mat-card-title>
             <h2>
               Assignments
+              <input matInput class="hide" [matDatepicker]="picker" placeholder="Choose a date" (dateInput)="changeAssignmentByDate($event)"
+                (dateChange)="changeAssignmentByDate($event)">
+              <mat-datepicker-toggle class="date-picker" matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker class="assignment-picker"></mat-datepicker>
             </h2>
           </mat-card-title>
         </mat-card-header>
         <mat-divider></mat-divider>
-        <input matInput [matDatepicker]="picker" placeholder="Choose a date" (dateInput)="changeAssignmentByDate($event)" (dateChange)="changeAssignmentByDate($event)">
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
+
         <mat-tab-group>
           <mat-tab label="Current">
 
 
 
-            <table class="tb-assignments">
+            <table class="tb-assignments ">
               <tr>
                 <td>Date</td>
                 <td>Subject</td>
@@ -74,9 +77,14 @@
           </mat-tab>
 
         </mat-tab-group>
+        <mat-card-actions class="float-left">
+          <button (click)="onSelectAssignmentsYesterday(assignment)" mat-button>
+            Yesterday
+          </button>
+        </mat-card-actions>
         <mat-card-actions class="float-right">
-          <button routerLink="/auth/assignments" mat-button class="mat-color-btn">
-            Go to Assignments
+          <button (click)="onSelectAssignmentsTomorrow(assignment)" mat-button>
+            Tomorrow
           </button>
         </mat-card-actions>
       </mat-card>
@@ -86,13 +94,14 @@
           <mat-card-title>
             <h2>
               Schedules
+              <input matInput class="hide" [matDatepicker]="pickerSchedule" placeholder="Choose a date" (dateInput)="changeSchedulesByDate($event)"
+                (dateChange)="changeSchedulesByDate($event)">
+              <mat-datepicker-toggle class="date-picker" matSuffix [for]="pickerSchedule"></mat-datepicker-toggle>
+              <mat-datepicker #pickerSchedule></mat-datepicker>
             </h2>
           </mat-card-title>
         </mat-card-header>
-        <input matInput [matDatepicker]="pickerSchedule" placeholder="Choose a date" (dateInput)="changeSchedulesByDate($event)"
-          (dateChange)="changeSchedulesByDate($event)">
-        <mat-datepicker-toggle matSuffix [for]="pickerSchedule"></mat-datepicker-toggle>
-        <mat-datepicker #pickerSchedule></mat-datepicker>
+
         <mat-divider></mat-divider>
         <mat-tab-group>
           <mat-tab label="Today">
@@ -140,9 +149,14 @@
           </mat-tab>
 
         </mat-tab-group>
+        <mat-card-actions class="float-left">
+          <button (click)="onSelectSchedulesYesterday(schedule)" mat-button>
+            Yesterday
+          </button>
+        </mat-card-actions>
         <mat-card-actions class="float-right">
-          <button routerLink="/auth/assignments" mat-button class="mat-color-btn">
-            Go to Assignments
+          <button (click)="onSelectSchedulesTomorrow(schedule)" mat-button>
+            Tomorrow
           </button>
         </mat-card-actions>
       </mat-card>

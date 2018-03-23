@@ -28,7 +28,8 @@ export class OverviewComponent implements OnInit {
   }
 
   getFormattedDate(value) {
-    const date: Date = value;
+    console.log(value);
+    const date: Date = new Date(value);
     const year: string | number = date.getFullYear();
     let month: string | number = date.getMonth() + 1;
     let day: string | number = date.getDate();
@@ -40,19 +41,25 @@ export class OverviewComponent implements OnInit {
     return formattedDate;
   }
   getYesterday(value) {
-    const date: Date = value;
-    return new Date(date.setDate(date.getDate() + 1));
+    const date: Date = new Date(value);
+    const yesterday = new Date(new Date().setDate(new Date().getDate() - 1));
+    console.log(yesterday);
+    return yesterday;
   }
 
   getTomorrow(value) {
-    const date: Date = value;
-    return new Date(date.setDate(date.getDate() - 1));
+    const date: Date = new Date(value);
+    const tomorrow = new Date(new Date().setDate(new Date().getDate() + 1));
+    console.log(tomorrow);
+    return tomorrow;
   }
 
   async onSelectAssignmentsYesterday() {
+    console.log(this.assignmentsDate);
     await this.changeAssignmentByDate(this.getYesterday(this.assignmentsDate));
   }
   async onSelectAssignmentsTomorrow() {
+    console.log(this.assignmentsDate);
     await this.changeAssignmentByDate(this.getTomorrow(this.assignmentsDate));
   }
   async onSelectSchedulesYesterday() {
