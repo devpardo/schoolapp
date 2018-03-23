@@ -51,9 +51,10 @@
             </mat-list> -->
           </mat-tab>
           <mat-tab label="Yesterday">
-            <input matInput [matDatepicker]="picker" placeholder="Choose a date" (dateInput)="changeSchedulesByDate($event)" (dateChange)="changeSchedulesByDate($event)">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
+            <input matInput [matDatepicker]="pickerSchedule" placeholder="Choose a date" (dateInput)="changeSchedulesByDate($event)"
+              (dateChange)="changeSchedulesByDate($event)">
+            <mat-datepicker-toggle matSuffix [for]="pickerSchedule"></mat-datepicker-toggle>
+            <mat-datepicker #pickerSchedule></mat-datepicker>
             <table class="tb-assignments">
               <tr>
                 <td>Date</td>
